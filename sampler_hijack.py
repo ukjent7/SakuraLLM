@@ -224,30 +224,22 @@ def get_logits_processor_patch(self, **kwargs):
 
 def generation_config_init_patch(self, **kwargs):
     self.__init___old(**kwargs)
-    # ... 添加你的自定义参数 ...
+    self.tfs = kwargs.pop("tfs", 1.0)
+    self.top_a = kwargs.pop("top_a", 0.0)
+    self.mirostat_mode = kwargs.pop("mirostat_mode", 0)
+    self.mirostat_eta = kwargs.pop("mirostat_eta", 0.1)
+    self.mirostat_tau = kwargs.pop("mirostat_tau", 5)
+    self.repetition_penalty_range = kwargs.pop("repetition_penalty_range", 0)
+    self.presence_penalty = kwargs.pop("presence_penalty", 0)
+    self.frequency_penalty = kwargs.pop("frequency_penalty", 0)
+
 
 def hijack_samplers():
-    try:
-        transformers.GenerationMixin._get_logits_processor_old = transformers.GenerationMixin._get_logits_processor
-        transformers.GenerationMixin._get_logits_processor = get_logits_processor_patch  #  确保该函数已定义
-    except AttributeError:
-        try: #尝试旧版本
-            transformers.GenerationMixin._get_logits_warper_old = transformers.GenerationMixin._get_logits_warper
-            transformers.GenerationMixin._get_logits_warper = get_logits_warper_patch #  确保该函数已定义
-        except AttributeError:
-            pass #如果两者都没有，就跳过，避免旧版本transformers报错
+    transformers.GenerationMixin._get_logits_warper_old = transformers.GenerationMixin._get_logits_warper
+    transformers.GenerationMixin._get_logits_warper = get_logits_warper_patch
 
+    transformers.GenerationMixin._get_logits_processor_old = transformers.GenerationMixin._get_logits_processor
+    transformers.GenerationMixin._get_logits_processor = get_logits_processor_patch
 
     transformers.GenerationConfig.__init___old = transformers.GenerationConfig.__init__
     transformers.GenerationConfig.__init__ = generation_config_init_patch
-
-# 定义 get_logits_processor_patch 和 get_logits_warper_patch 函数
-def get_logits_processor_patch(self, *args, **kwargs):
-    # 实现你对 logits processor 的修改
-    # ...
-    return self._get_logits_processor_old(*args, **kwargs)
-
-def get_logits_warper_patch(self, *args, **kwargs): # 保留旧版本兼容性
-    # 实现你对 logits warper 的修改
-    # ...
-    return self._get_logits_warper_old(*args, **kwargs)
