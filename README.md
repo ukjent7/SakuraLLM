@@ -36,27 +36,24 @@
 
 部分使用方法：[usage.md](https://github.com/SakuraLLM/SakuraLLM/blob/main/usage.md)
 
+> **请注意，如果给轻小说机翻站使用，请参见[机翻站站内教程](https://books.fishhawk.top/forum?category=Guide&page=1)，本 repo 不适用。**
+
 ### 模型下载：
 
 | 参数量 | 发布时间-底模-版本  | 模型 |
 |:-------:|:-------|:-------|
 | 32B | 20240508-Qwen1.5-32B-v0.9 | 🤗 [Sakura-32B-Qwen2beta-v0.9-GGUF](https://huggingface.co/SakuraLLM/Sakura-32B-Qwen2beta-v0.9-GGUF) |
-|     | 20240508-Qwen1.5-32B-v0.10pre1 | 🤗 [Sakura-32B-Qwen2beta-v0.10pre1-GGUF](https://huggingface.co/SakuraLLM/Sakura-32B-Qwen2beta-v0.10pre1-GGUF) |
-| 14B | 20240111-Qwen-14B-v0.9 | 🤗 [Sakura-13B-LNovel-v0.9b-GGUF](https://huggingface.co/SakuraLLM/Sakura-13B-LNovel-v0.9b-GGUF) |
-|     | 20240213-Qwen1.5-14B-v0.9 | 🤗 [Sakura-14B-Qwen2beta-v0.9-GGUF](https://huggingface.co/SakuraLLM/Sakura-14B-Qwen2beta-v0.9-GGUF) |
-|     | 20240516-Qwen1.5-14B-v0.9.2 | 🤗 [Sakura-14B-Qwen2beta-v0.9.2-GGUF](https://huggingface.co/SakuraLLM/Sakura-14B-Qwen2beta-v0.9.2-GGUF)
-|(最新)| **20241008-Qwen2.5-14B-v1.0** | 🤗 [Sakura-14B-Qwen2.5-v1.0-GGUF](https://huggingface.co/SakuraLLM/Sakura-14B-Qwen2.5-v1.0-GGUF)
-| 7B  | 20240116-Qwen-7B-v0.9 | 🤗 [Sakura-7B-LNovel-v0.9-GGUF](https://huggingface.co/SakuraLLM/Sakura-7B-LNovel-v0.9-GGUF) |
+| 14B | **20241008-Qwen2.5-14B-v1.0** | 🤗 [Sakura-14B-Qwen2.5-v1.0-GGUF](https://huggingface.co/SakuraLLM/Sakura-14B-Qwen2.5-v1.0-GGUF)
+| 7B  | **20241123-Qwen2.5-7B-v1.0** | 🤗 [Sakura-7B-Qwen2.5-v1.0-GGUF](https://huggingface.co/SakuraLLM/Sakura-7B-Qwen2.5-v1.0-GGUF) |
 |     | 20240531-Qwen1.5-7B-Galtransl-v2.6 | 🤗 [Galtransl-v2.6](https://huggingface.co/SakuraLLM/GalTransl-7B-v2.6) |
-| ~2B | 20240214-Qwen1.5-1.8B-v0.9.1 | 🤗 [Sakura-1B8-Qwen2beta-v0.9.1-GGUF](https://huggingface.co/SakuraLLM/Sakura-1B8-Qwen2beta-v0.9.1-GGUF) |
-|     | **20241012-Qwen2.5-1.5B-v1.0** | 🤗 [Sakura-1.5B-Qwen2.5-v1.0-GGUF](https://huggingface.co/SakuraLLM/Sakura-1.5B-Qwen2.5-v1.0-GGUF) |
+| ~2B | **20241012-Qwen2.5-1.5B-v1.0** | 🤗 [Sakura-1.5B-Qwen2.5-v1.0-GGUF](https://huggingface.co/SakuraLLM/Sakura-1.5B-Qwen2.5-v1.0-GGUF) |
 
 
 p.s. 如果无法连接到HuggingFace服务器，可将链接中的`huggingface.co`改成`hf-mirror.com`，使用hf镜像站下载。
 
 ## News
 
-1. **更新了基于Qwen2.5-14B的v1.0正式版模型[Sakura-14B-Qwen2.5-v1.0](https://huggingface.co/SakuraLLM/Sakura-14B-Qwen2.5-v1.0-GGUF)，prompt格式参见[下方说明](https://github.com/SakuraLLM/SakuraLLM#%E6%8E%A8%E7%90%86)。主要改进：**
+1. **更新了基于Qwen2.5的v1.0正式版14B模型[Sakura-14B-Qwen2.5-v1.0](https://huggingface.co/SakuraLLM/Sakura-14B-Qwen2.5-v1.0-GGUF)、1.5B模型[Qwen2.5-1.5B-v1.0](https://huggingface.co/SakuraLLM/Sakura-1.5B-Qwen2.5-v1.0-GGUF)和7B模型[Sakura-7B-Qwen2.5-v1.0-GGUF](https://huggingface.co/SakuraLLM/Sakura-7B-Qwen2.5-v1.0-GGUF)。prompt格式参见[下方说明](https://github.com/SakuraLLM/SakuraLLM#%E6%8E%A8%E7%90%86)。主要改进：**
     - 改善翻译质量，提高翻译准确率，尤其是人称的准确率。
     - 支持术语表(GPT字典)，以保持专有名词和人称的一致性。
     - 提高部分简单控制符的保留能力，尤其是单行内存在`\n`的情况下保留`\n`的能力。降低行数与原文不一致的概率。
@@ -99,21 +96,17 @@ p.s. 如果无法连接到HuggingFace服务器，可将链接中的`huggingface.
 
 1. [BallonsTranslator](https://github.com/dmMaze/BallonsTranslator)已经支持Sakura API，可以通过本地部署API后端，使用Sakura翻译漫画。
 
-# 显存需求
+# 显卡需求与显存需求
 
-下面的表格显示了使用不同量化和不同格式的模型时显存占用的大小。如果你的显卡显存不满足上述需求，可以尝试同时使用CPU与GPU进行推理。
+目前[Sakura Launcher GUI](https://github.com/PiDanShouRouZhouXD/Sakura_Launcher_GUI)可以支持NVIDIA独立显卡，部分AMD独立显卡和一部分核显的一键安装与启动。
 
-- llama.cpp GGUF模型（使用Qwen-14B v0.9模型进行测试）
+下面的表格显示了部分模型推荐的显卡显存大小。如果你的显卡显存不满足上述需求，可以尝试同时使用CPU与GPU进行推理。
 
-|  模型量化类型  | 模型大小 | 推荐显存大小 |
-|:-------:|:-------:|:-------:|
-| fp16 | 26.3G | 超出游戏显卡显存范围 |
-| Q8_0 | 14G | 24G |
-| Q6_K | 11.4G | 20G |
-| Q5_K_M | 10.1G | 16G |
-| Q4_K_M | 8.8G | 16G |
-| Q3_K_M | 7.2G | 16G |
-| Q2_K | 6.1G | 12G |
+| 模型 | 显存大小 | 模型规模 |
+|:------:|:------:|:------:|
+| [sakura-7b-qwen2.5-v1.0-iq4xs.gguf](https://huggingface.co/SakuraLLM/Sakura-7B-Qwen2.5-v1.0-GGUF/blob/main/sakura-7b-qwen2.5-v1.0-iq4xs.gguf) | 8G/10G          | 7B          |
+| [sakura-14b-qwen2.5-v1.0-iq4xs.gguf](https://huggingface.co/SakuraLLM/Sakura-14B-Qwen2.5-v1.0-GGUF/blob/main/sakura-14b-qwen2.5-v1.0-iq4xs.gguf) | 11G/12G/16G     | 14B         |
+| [sakura-14b-qwen2.5-v1.0-q6k.gguf](https://huggingface.co/SakuraLLM/Sakura-14B-Qwen2.5-v1.0-GGUF/blob/main/sakura-14b-qwen2.5-v1.0-q6k.gguf) | 24G             | 14B         |
 
 # 模型详情
 
@@ -258,6 +251,19 @@ p.s. 如果无法连接到HuggingFace服务器，可将链接中的`huggingface.
 # 微调
 
 模型微调框架参考[BELLE](https://github.com/LianjiaTech/BELLE)或[LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)，prompt构造参考推理部分。
+
+# Legacy Models
+
+| 参数量 | 发布时间-底模-版本  | 模型 |
+|:-------:|:-------|:-------|
+| 32B | 20240508-Qwen1.5-32B-v0.9 | 🤗 [Sakura-32B-Qwen2beta-v0.9-GGUF](https://huggingface.co/SakuraLLM/Sakura-32B-Qwen2beta-v0.9-GGUF) |
+|     | 20240508-Qwen1.5-32B-v0.10pre1 | 🤗 [Sakura-32B-Qwen2beta-v0.10pre1-GGUF](https://huggingface.co/SakuraLLM/Sakura-32B-Qwen2beta-v0.10pre1-GGUF) |
+| 14B | 20240111-Qwen-14B-v0.9 | 🤗 [Sakura-13B-LNovel-v0.9b-GGUF](https://huggingface.co/SakuraLLM/Sakura-13B-LNovel-v0.9b-GGUF) |
+|     | 20240213-Qwen1.5-14B-v0.9 | 🤗 [Sakura-14B-Qwen2beta-v0.9-GGUF](https://huggingface.co/SakuraLLM/Sakura-14B-Qwen2beta-v0.9-GGUF) |
+|     | 20240516-Qwen1.5-14B-v0.9.2 | 🤗 [Sakura-14B-Qwen2beta-v0.9.2-GGUF](https://huggingface.co/SakuraLLM/Sakura-14B-Qwen2beta-v0.9.2-GGUF)
+| 7B  | 20240116-Qwen-7B-v0.9 | 🤗 [Sakura-7B-LNovel-v0.9-GGUF](https://huggingface.co/SakuraLLM/Sakura-7B-LNovel-v0.9-GGUF) |
+|     | 20240531-Qwen1.5-7B-Galtransl-v2.6 | 🤗 [Galtransl-v2.6](https://huggingface.co/SakuraLLM/GalTransl-7B-v2.6) |
+| ~2B | 20240214-Qwen1.5-1.8B-v0.9.1 | 🤗 [Sakura-1B8-Qwen2beta-v0.9.1-GGUF](https://huggingface.co/SakuraLLM/Sakura-1B8-Qwen2beta-v0.9.1-GGUF) |
 
 # 相关项目
 
